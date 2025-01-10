@@ -1,0 +1,21 @@
+You are given an array of integers nums and an integer threshold. You need to find the smallest positive integer divisor such that the sum of all elements
+in the array after dividing them by the divisor and rounding up does not exceed threshold.
+For each element nums[i], the operation performed is:
+
+Solution Explanation
+Problem Requirements:
+
+We need to minimize the divisor while ensuring the sum of the ceiling values of the divisions is within the given threshold.
+Approach:
+
+Use binary search to efficiently find the smallest divisor. The search range is from 1 to the maximum element in the array nums since dividing by a number larger than the maximum always results in 1.
+Define a helper function func to check if a given divisor produces a sum less than or equal to the threshold.
+Steps:
+
+Initialize the binary search bounds: s (smallest divisor) as 1 and e (largest divisor) as max_element(nums).
+For each mid-point, check using func:
+If func returns true, the divisor is valid, and we move left to find a smaller valid divisor.
+If false, move right to increase the divisor.
+Returning the Result:
+
+At the end of the binary search, s will point to the smallest valid divisor.
